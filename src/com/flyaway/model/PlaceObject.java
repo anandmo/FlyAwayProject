@@ -1,11 +1,31 @@
 package com.flyaway.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "placetable")
 public class PlaceObject {
 	
+	@Id
 	private int pincode;
+	
 	private String statename;
 	private String cityname;
 	private String airportname;
+	
+	
+	public PlaceObject(int pincode,String statename,String cityname,String airportname) {
+		
+		this.pincode = pincode;
+		this.statename =  statename;
+		this.cityname = cityname;
+		this.airportname = airportname;
+		
+	}
+	
+	
 	public int getPincode() {
 		return pincode;
 	}

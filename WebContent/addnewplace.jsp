@@ -22,6 +22,9 @@
 <br>
 <p><input type = "submit" value = "Add">
 
+<br>
+<p><a href = "./manageplace.jsp"> Back to Manage Place</a></p>
+<p><a href = "./adminpage.jsp">Back to Main Menu</a></p>
 </div>
 </form>
 

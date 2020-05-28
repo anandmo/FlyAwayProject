@@ -16,7 +16,7 @@
 
            <property name="connection.password">simplilearn@2020</property>
            
-           <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+           <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
            
            <property name="hbm2ddl.auto">update</property>
     
