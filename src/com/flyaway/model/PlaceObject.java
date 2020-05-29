@@ -15,6 +15,9 @@ public class PlaceObject {
 	private String cityname;
 	private String airportname;
 	
+	public PlaceObject() {
+		super();
+	}
 	
 	public PlaceObject(int pincode,String statename,String cityname,String airportname) {
 		

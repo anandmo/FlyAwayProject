@@ -46,7 +46,7 @@ public class AddPlace extends HttpServlet {
 		String cityname = request.getParameter("cityname");
 		String statename = request.getParameter("statename");
 		String airportname = request.getParameter("airportname");
-		int pin = Integer.parseInt(pincode);
+		
 //		if(pincode != null && pincode.matches("^[a-zA-Z]*$")){
 //		
 //			RequestDispatcher rs = request.getRequestDispatcher("addnewplace.jsp");
@@ -62,6 +62,7 @@ public class AddPlace extends HttpServlet {
 			response.getWriter().write("<p>Fields cannot be left blank</p>");
 			
 		} else {
+		int pin = Integer.parseInt(pincode);
 		AdminDao admindao = new AdminDaoImpl();
 		admindao.addPlaceInDB(pin, statename, cityname, airportname);
 		RequestDispatcher rs = request.getRequestDispatcher("addnewplace.jsp");

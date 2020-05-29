@@ -1,13 +1,14 @@
 package com.flyaway.daoimpl;
 
+//import java.util.Iterator;
+import java.util.List;
+
+//import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 import com.flyaway.dao.AdminDao;
+import com.flyaway.dao.DBUtility;
 //import com.flyaway.dao.DBUtility;
 //import com.flyaway.model.LoginObject;
 import com.flyaway.model.PlaceObject;
@@ -18,16 +19,29 @@ public class AdminDaoImpl implements AdminDao {
 	public void addPlaceInDB(int pincode, String statename, String cityname, String airportname) {
 		
 		PlaceObject place = new PlaceObject(pincode,statename,cityname,airportname);
-		//Session session = DBUtility.getDBSession(PlaceObject.class);
-        Configuration con = new Configuration().configure().addAnnotatedClass(PlaceObject.class);
-		ServiceRegistry reg = new StandardServiceRegistryBuilder().applySettings(con.getProperties()).build();
-		SessionFactory sf = con.buildSessionFactory(reg);
-		Session session = sf.openSession();
+		Session session = DBUtility.getDBSession(PlaceObject.class);
 		Transaction tx = session.beginTransaction();
 		session.save(place);
 		tx.commit();
 		session.close();
 		
+	}
+
+	@Override
+	public List<PlaceObject> fetchAllPlaceInDB() {
+		
+		Session session = DBUtility.getDBSession(PlaceObject.class);
+		Transaction tx = session.beginTransaction();
+    	List<PlaceObject> placelist = session.createQuery("FROM PlaceObject",PlaceObject.class).list();
+		tx.commit();
+
+//		Iterator<PlaceObject> iterator = placelist.iterator();
+//		while(iterator.hasNext()) {
+//			System.out.println(iterator.next());
+//     	}
+		
+		session.close();
+		return placelist;
 	}
 
 }
