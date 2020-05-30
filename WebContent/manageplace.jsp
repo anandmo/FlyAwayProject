@@ -16,9 +16,9 @@
 <br>
 
 <p> <a href = "./addnewplace.jsp">Add a new Place</a> </p>
-<p> <a href = "./removeplace">Remove Place</a> </p>
+<p> <a href = "./removeplace.jsp">Remove Place</a> </p>
 <p> <a href = "./adminpage.jsp">Back to main menu</a> </p>
-
+<p> <a href = "./welcome.jsp">Back to Welcome Page</a> </p>
 </div>
 
 </body>

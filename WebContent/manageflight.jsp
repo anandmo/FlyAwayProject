@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Page</title>
+<title>Manage Flight</title>
 </head>
 <body>
 
@@ -14,12 +14,11 @@
 <br>
 <hr>
 <br>
-<p><a href = "./manageplace.jsp">Manage Place</a></p>
-<p><a href = "./manageflight.jsp">Manage Flight</a></p>
-<p><a href = "./manageflightshedule.jsp">Manage Flights Schedule</a></p>
+<p><a href = "./addflight.jsp">Add Flight</a></p>
+<p><a href = "./removeflight.jsp">Remove Flight</a></p>
+<p><a href = "./adminpage.jsp">Back to Main Menu</a></p>
 <p> <a href = "./welcome.jsp">Back to Welcome Page</a> </p>
 </div>
-
 
 
 </body>
