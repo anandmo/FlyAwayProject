@@ -44,5 +44,15 @@ public class AdminDaoImpl implements AdminDao {
 		return placelist;
 	}
 
+	@Override
+	public void deletePlaceInDB(int pincode) {
+		Session session = DBUtility.getDBSession(PlaceObject.class);
+		PlaceObject tempplaceobject = session.load(PlaceObject.class, pincode);
+		Transaction tx = session.beginTransaction();
+		session.delete(tempplaceobject);
+		tx.commit();
+		session.close();
+	}
+
 }
 

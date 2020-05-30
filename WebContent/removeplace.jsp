@@ -12,26 +12,30 @@
 <title>Remove Place</title>
 </head>
 <body>
+<form action = "deleteplace" method = "post">
 <div align="center">
-
+<h2>Delete Place</h2>
+<br>
+<hr>
+<br>
 <label>Select Place to delete</label>
-<select class = "form-control" style = "width: 250px;">
+<select name = "place" class = "form-control" style = "width: 250px;">
 <option value = -1 >Select Place</option>
 <%
 AdminDaoImpl admindaoimpl = new AdminDaoImpl();
+PlaceObject tempplaceobject;
 List<PlaceObject> placelist = admindaoimpl.fetchAllPlaceInDB();
 Iterator<PlaceObject> placeiterator = placelist.iterator();
-
 while(placeiterator.hasNext()){
-
+	tempplaceobject = placeiterator.next();
     %>
-      <option><%= placeiterator.next().getCityname() %></option>
+      <option value = <%= tempplaceobject.getPincode() %> > <%= tempplaceobject.getCityname() %> </option>
     <% 
 }
-
 %>
-
 </select>
+<input type = "submit" value = "Delete">
 </div>
+</form>
 </body>
 </html>

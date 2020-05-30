@@ -7,5 +7,6 @@ public interface AdminDao {
 	
 	public void addPlaceInDB(int pincode,String statename,String cityname,String airportname);
 	public List<PlaceObject> fetchAllPlaceInDB();
+	public void deletePlaceInDB(int pincode);
 
 }
