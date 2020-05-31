@@ -9,9 +9,12 @@ import org.hibernate.Transaction;
 
 import com.flyaway.dao.AdminDao;
 import com.flyaway.dao.DBUtility;
+import com.flyaway.model.FlightObject;
+import com.flyaway.model.FlightScheduleObject;
 //import com.flyaway.dao.DBUtility;
 //import com.flyaway.model.LoginObject;
 import com.flyaway.model.PlaceObject;
+
 
 public class AdminDaoImpl implements AdminDao {
 
@@ -52,6 +55,42 @@ public class AdminDaoImpl implements AdminDao {
 		session.delete(tempplaceobject);
 		tx.commit();
 		session.close();
+	}
+
+	@Override
+	public void addNewFlight(int flightId, String flightName, int flightCapacity, double flightSpeed,
+			String flightProvider) {
+	
+		FlightObject flight = new FlightObject(flightId,flightName,flightCapacity,flightSpeed,flightProvider);
+		Session session = DBUtility.getDBSession(FlightObject.class);
+		Transaction tx = session.beginTransaction();
+		session.save(flight);
+		tx.commit();
+		session.close();
+		
+		
+	}
+
+	@Override
+	public List<FlightObject> fetchAllFlightInDB() {
+		Session session = DBUtility.getDBSession(FlightObject.class);
+		Transaction tx = session.beginTransaction();
+    	List<FlightObject> flightlist = session.createQuery("FROM FlightObject",FlightObject.class).list();
+		tx.commit();
+		session.close();
+		return flightlist;
+	}
+
+	@Override
+	public void addNewFlightSchedule(String fromplace, String toplace, String dateoftravel, String depaturetime) {
+		
+		FlightScheduleObject flightscheduleobject = new FlightScheduleObject(fromplace,toplace,dateoftravel,depaturetime);
+		Session session = DBUtility.getDBSession(FlightScheduleObject.class);
+		Transaction tx = session.beginTransaction();
+		session.save(flightscheduleobject);
+		tx.commit();
+		session.close();
+		
 	}
 
 }

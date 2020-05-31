@@ -10,7 +10,7 @@
 <form action="addnewflight" method = "post">
 <div align = "center">
 
-<h1>Administrator Page</h1>
+<h1>Add Flight</h1>
 <br>
 <hr>
 <br>
@@ -22,6 +22,10 @@
 <p>Flight Provider : <input type = "text" name = "flightprovider"></p>
 
 <input type = "submit" value = "Add Flight">
+
+<p><a href = "./manageflight.jsp">Back to Manage Flight Page</a></p>
+<p><a href = "./adminpage.jsp">Back to Main Menu</a></p>
+<p> <a href = "./welcome.jsp">Back to Welcome Page</a> </p>
 
 </div>
 </form>

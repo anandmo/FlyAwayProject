@@ -46,6 +46,23 @@ public class FlightObject {
 	public void setFlightProvider(String flightProvider) {
 		this.flightProvider = flightProvider;
 	}
+	public FlightObject(int flightId, String flightName, int flightCapacity, double flightSpeed,
+			String flightProvider) {
+		super();
+		this.flightId = flightId;
+		this.flightName = flightName;
+		this.flightCapacity = flightCapacity;
+		this.flightSpeed = flightSpeed;
+		this.flightProvider = flightProvider;
+	}
+	
+	
+	
+	public FlightObject() {
+		super();
+		
+	}
+	
 	
 
 }

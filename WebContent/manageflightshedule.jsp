@@ -1,36 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    
     <%@ page import="java.util.List" %>
     <%@ page import="com.flyaway.daoimpl.AdminDaoImpl" %>
     <%@ page import="com.flyaway.model.PlaceObject" %>
     <%@ page import="com.flyaway.model.FlightObject" %>
     <%@ page import="java.util.Iterator" %>
     
-    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>FlyAway</title>
+<title>Flight Schedule</title>
 </head>
 <body>
 
-<table>
-<tr><td><a href="./adminLogin.jsp">Administrator</a></td>
-<td><a href="./createAccount.jsp">SignUp</a></td>
-<td><a href="./userLogin.jsp">Login</a></td>
-</table>
-
-<h2 align = "center">Book A Flight Now !!</h2>
-<br>
-<hr>
-<br>
-<form action = "findFlight" method = "post">
-
-<div align = "center">
-
+<form action = "addflightschedule" method = "post">
+   <div align = "center">
+   <br>
+   <h1>Schedule A Flight</h1>
+   <br>
+   <hr>
+   <br>
+   
 <label>Boarding</label>
 <select name = "fromplace" class = "form-control" style = "width: 250px;">
 <option value = -1 >From</option>
@@ -67,19 +59,43 @@ while(placeiterator2.hasNext()){
 <br>
 <br>
 
+<label>Flight</label>
+<select name = "flight" class = "form-control" style = "width: 250px;">
+<option value = -1 >Select</option>
+<%
+FlightObject tempflightobject;
+List<FlightObject> flightlist = admindaoimpl.fetchAllFlightInDB();
+Iterator<FlightObject> flightiterator = flightlist.iterator();
+while(flightiterator.hasNext()){
+	tempflightobject = flightiterator.next();
+    %>
+      <option value = <%= tempflightobject.getFlightId() %> > <%= tempflightobject.getFlightName() %> </option>
+    <% 
+}
+%>
+</select>      
+ <br>  
  <p> Date of Travel : <input type = "date" name = "dateoftravel">   
- 
+   &nbsp;
+&nbsp;
+  <label for="depaturetime">Select a time:</label>
+  <input type="time" id="depaturetime" name="depaturetime">  
   <br>
   <br>
-   <input type = "submit" value = "Find Flights"> 
+   <input type = "submit" value = "Add Flight Schedule"> 
    
    <br>
    <br>
-
+   
+   <p><a href = "./manageplace.jsp"> Back to Manage Place</a></p>
+<p><a href = "./adminpage.jsp">Back to Main Menu</a></p>
+ <p><a href = "./welcome.jsp">Back to Welcome Page</a></p>  
  
    </div>
-
-</form>
+   
+ </form> 
+ 
+ 
 
 </body>
 </html>
