@@ -41,12 +41,13 @@ public class AddFlightSchedule extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String flightname = request.getParameter("flight");
 		String fromplace = request.getParameter("fromplace");
 		String toplace = request.getParameter("toplace");
 		String dateoftravel = request.getParameter("dateoftravel");
 		String depaturetime = request.getParameter("depaturetime");
 		AdminDao admindaoimpl = new AdminDaoImpl();
-		admindaoimpl.addNewFlightSchedule(fromplace, toplace, dateoftravel, depaturetime);
+		admindaoimpl.addNewFlightSchedule(flightname, fromplace, toplace, dateoftravel, depaturetime);
 		RequestDispatcher req = request.getRequestDispatcher("manageflightshedule.jsp");
 		req.include(request, response);
 		response.getWriter().write("<h2>Flight Schedule Added</h2>");

@@ -82,9 +82,9 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	@Override
-	public void addNewFlightSchedule(String fromplace, String toplace, String dateoftravel, String depaturetime) {
+	public void addNewFlightSchedule(String flightname,String fromplace, String toplace, String dateoftravel, String depaturetime) {
 		
-		FlightScheduleObject flightscheduleobject = new FlightScheduleObject(fromplace,toplace,dateoftravel,depaturetime);
+		FlightScheduleObject flightscheduleobject = new FlightScheduleObject(flightname,fromplace,toplace,dateoftravel,depaturetime);
 		Session session = DBUtility.getDBSession(FlightScheduleObject.class);
 		Transaction tx = session.beginTransaction();
 		session.save(flightscheduleobject);
@@ -92,6 +92,43 @@ public class AdminDaoImpl implements AdminDao {
 		session.close();
 		
 	}
+
+	@Override
+	public List<FlightScheduleObject> findFlightSchedule(String fromplace, String toplace) {
+		
+		System.out.println("From Place : " + fromplace);
+		System.out.println("To Place : " + toplace);
+		Session session = DBUtility.getDBSession(FlightScheduleObject.class);
+		Transaction tx = session.beginTransaction();
+		List<FlightScheduleObject> flightschedulelist = session.createQuery("FROM FlightScheduleObject",FlightScheduleObject.class).list();
+		tx.commit();
+		session.close();
+		return flightschedulelist;
+	//	return null;
+	}
+
+	@Override
+	public String getPlaceName(String pincode) {
+		PlaceObject placeobject;
+		Session session = DBUtility.getDBSession(PlaceObject.class);
+		Transaction tx = session.beginTransaction();
+		placeobject = session.get(PlaceObject.class, Integer.parseInt(pincode));
+		tx.commit();
+		return placeobject.getCityname();
+	}
+
+	@Override
+	public String getFlightName(String flightid) {
+	    FlightObject flightobject;
+	    Session session = DBUtility.getDBSession(FlightObject.class);
+	    Transaction tx = session.beginTransaction();
+	    flightobject = session.get(FlightObject.class, Integer.parseInt(flightid));
+		tx.commit();	
+		return flightobject.getFlightName();
+
+	}
+	
+	
 
 }
 

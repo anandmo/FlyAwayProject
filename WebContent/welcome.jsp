@@ -27,7 +27,7 @@
 <br>
 <hr>
 <br>
-<form action = "findFlight" method = "post">
+<form action = "findflight" method = "post">
 
 <div align = "center">
 
@@ -42,7 +42,7 @@ Iterator<PlaceObject> placeiterator = placelist.iterator();
 while(placeiterator.hasNext()){
 	tempplaceobject = placeiterator.next();
     %>
-      <option value = <%= tempplaceobject.getPincode() %> > <%= tempplaceobject.getCityname() %> </option>
+      <option value = <%= tempplaceobject.getCityname() %> > <%= tempplaceobject.getCityname() %> </option>
     <% 
 }
 %>
@@ -58,7 +58,7 @@ Iterator<PlaceObject> placeiterator2 = placelist.iterator();
 while(placeiterator2.hasNext()){
 	tempplaceobject = placeiterator2.next();
     %>
-      <option value = <%= tempplaceobject.getPincode() %> > <%= tempplaceobject.getCityname() %> </option>
+      <option value = <%= tempplaceobject.getCityname() %> > <%= tempplaceobject.getCityname() %> </option>
     <% 
 }
 %>

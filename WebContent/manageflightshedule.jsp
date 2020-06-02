@@ -34,7 +34,7 @@ Iterator<PlaceObject> placeiterator = placelist.iterator();
 while(placeiterator.hasNext()){
 	tempplaceobject = placeiterator.next();
     %>
-      <option value = <%= tempplaceobject.getPincode() %> > <%= tempplaceobject.getCityname() %> </option>
+      <option value = <%= tempplaceobject.getCityname() %> > <%= tempplaceobject.getCityname() %> </option>
     <% 
 }
 %>
@@ -50,7 +50,7 @@ Iterator<PlaceObject> placeiterator2 = placelist.iterator();
 while(placeiterator2.hasNext()){
 	tempplaceobject = placeiterator2.next();
     %>
-      <option value = <%= tempplaceobject.getPincode() %> > <%= tempplaceobject.getCityname() %> </option>
+      <option value = <%= tempplaceobject.getCityname() %> > <%= tempplaceobject.getCityname() %> </option>
     <% 
 }
 %>
@@ -69,7 +69,7 @@ Iterator<FlightObject> flightiterator = flightlist.iterator();
 while(flightiterator.hasNext()){
 	tempflightobject = flightiterator.next();
     %>
-      <option value = <%= tempflightobject.getFlightId() %> > <%= tempflightobject.getFlightName() %> </option>
+      <option value = <%= tempflightobject.getFlightName() %> > <%= tempflightobject.getFlightName() %> </option>
     <% 
 }
 %>

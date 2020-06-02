@@ -17,10 +17,12 @@ public class FlightScheduleObject {
 	@Column(name = "flightid", updatable = false, nullable = false)
 	int flightid;
 	
+	private String flightName;
 	private String fromplace;
 	private String toplace;
 	private String dateoftravel;
 	private String depaturetime;
+	
 	public int getFlightid() {
 		return flightid;
 	}
@@ -52,14 +54,21 @@ public class FlightScheduleObject {
 		this.depaturetime = depaturetime;
 	}
 	
-	public FlightScheduleObject(String fromplace, String toplace, String dateoftravel, String depaturetime) {
+	public FlightScheduleObject(String flightname, String fromplace, String toplace, String dateoftravel, String depaturetime) {
 		super();
+		this.flightName = flightname;
 		this.fromplace = fromplace;
 		this.toplace = toplace;
 		this.dateoftravel = dateoftravel;
 		this.depaturetime = depaturetime;
 	}
 	
+	public String getFlightName() {
+		return flightName;
+	}
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
+	}
 	public FlightScheduleObject() {
 		super();
 	}
