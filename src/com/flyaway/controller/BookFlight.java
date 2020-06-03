@@ -24,7 +24,8 @@ public class BookFlight extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	 
-         
+		String flightId = request.getParameter("selectedTicket");
+        response.getWriter().write(flightId); 
 		
 	}
 

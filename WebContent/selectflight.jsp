@@ -27,13 +27,14 @@
 
 <table border ="1" > 
          <tr bgcolor="00FF7F"> 
-         <th><b>Flight Id</b></th>
-          <th><b>Flight Name</b></th> 
-          <th><b>Boarding</b></th> 
-          <th><b>Destination</b></th> 
-          <th><b>Date</b></th> 
-          <th><b>Time</b></th> 
-          <th><b>Book</b></th> 
+         <th><b> Flight Id </b></th>
+          <th><b> Flight Name </b></th> 
+          <th><b> Boarding </b></th> 
+          <th><b> Destination </b></th> 
+          <th><b> Date </b></th> 
+          <th><b> Take off Time </b></th> 
+          <th><b> Cost </b></th> 
+          <th><b> Book </b></th> 
          </tr>   
         
         
@@ -48,15 +49,16 @@
                 <td><%=s.getFromplace()%></td> 
                 <td><%=s.getToplace()%></td>
                 <td><%=s.getDateoftravel()%></td> 
-                <td><%=s.getDepaturetime()%></td> 
-                 <td><input type= "submit" value = "Book Now" name = <%=s.getFlightid() %>></td>
+                <td><%=s.getDepaturetime()%></td>
+                <td><%=s.getFlightCostPerPerson()%></td>  
+                 <td> <input type="radio" name="selectedticket" value=<%=s.getFlightid()%>> </td>
             </tr> 
             <%} }  %>
            
         </table>  
-        
-
-
+<br>
+<br>
+<input type = "submit" value = "Proceed for Payment" >
 </div>
 </form>
 

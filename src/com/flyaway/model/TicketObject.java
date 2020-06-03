@@ -1,7 +1,19 @@
 package com.flyaway.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ticketdb")
 public class TicketObject {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "flightid", updatable = false, nullable = false)
 	private int ticketid;
 	private String travellerName;
 	private String travellerEmail;

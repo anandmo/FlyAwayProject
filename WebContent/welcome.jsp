@@ -68,10 +68,13 @@ while(placeiterator2.hasNext()){
 <br>
 
  <p> Date of Travel : <input type = "date" name = "dateoftravel">   
+ <p> How people are traveling with you : <input type = "number" placeholder = "0" min = "0" max = "10" name = "cop">
+ 
  
   <br>
   <br>
    <input type = "submit" value = "Find Flights"> 
+   
    
    <br>
    <br>
