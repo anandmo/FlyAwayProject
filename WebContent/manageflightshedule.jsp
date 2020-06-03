@@ -82,10 +82,14 @@ while(flightiterator.hasNext()){
   <input type="time" id="depaturetime" name="depaturetime">  
   <br>
   <br>
+  <p>Cost per seat : <input type="number" placeholder="0.0" step="0.01" min="0" max="100000" name = "cost"></p>
+  <br>
+  <br>
    <input type = "submit" value = "Add Flight Schedule"> 
+   <br>
+   <br>
    
-   <br>
-   <br>
+   
    
    <p><a href = "./manageplace.jsp"> Back to Manage Place</a></p>
 <p><a href = "./adminpage.jsp">Back to Main Menu</a></p>

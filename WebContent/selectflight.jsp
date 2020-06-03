@@ -18,6 +18,8 @@
 <body>
 <form action="bookflight" method = "post">
 <div align = "center">
+<% AdminDaoImpl admindaoimpl = new AdminDaoImpl();
+        if(request.getAttribute("flightschedulelist") != null){ %>
 <h1>Select A Flight</h1>
 <br>
 <hr>
@@ -31,11 +33,11 @@
           <th><b>Destination</b></th> 
           <th><b>Date</b></th> 
           <th><b>Time</b></th> 
+          <th><b>Book</b></th> 
          </tr>   
-        <% AdminDaoImpl admindaoimpl = new AdminDaoImpl();
-        if(request.getAttribute("flightschedulelist") != null){
         
-        @SuppressWarnings("unchecked")
+        
+       <%  @SuppressWarnings("unchecked")
         ArrayList<FlightScheduleObject> fslist = (ArrayList<FlightScheduleObject>)request.getAttribute("flightschedulelist"); 
         
         for(FlightScheduleObject s:fslist){%> 
@@ -47,14 +49,13 @@
                 <td><%=s.getToplace()%></td>
                 <td><%=s.getDateoftravel()%></td> 
                 <td><%=s.getDepaturetime()%></td> 
-                 <td><input type= "submit" value = "Book Now" name = <%=s.getFlightid() %>>
+                 <td><input type= "submit" value = "Book Now" name = <%=s.getFlightid() %>></td>
             </tr> 
-            <%} } else {
-            
-            }
- 
-            %> 
+            <%} }  %>
+           
         </table>  
+        
+
 
 </div>
 </form>

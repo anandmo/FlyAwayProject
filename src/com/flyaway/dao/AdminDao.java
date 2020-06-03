@@ -10,7 +10,7 @@ public interface AdminDao {
 	public void deletePlaceInDB(int pincode);
 	public void addNewFlight(int flightId,String flightName,int flightCapacity,double flightSpeed,String flightProvider);
     public List<FlightObject> fetchAllFlightInDB();
-	public void addNewFlightSchedule(String flightname,String fromplace,String toplace,String dateoftravel, String depaturetime);
+	public void addNewFlightSchedule(String flightname,String fromplace,String toplace,String dateoftravel, String depaturetime, double flightCostPerPerson);
 	public List<FlightScheduleObject> findFlightSchedule(String fromplace,String toplace);
 	public String getPlaceName(String pincode);
 	public String getFlightName(String flightid);

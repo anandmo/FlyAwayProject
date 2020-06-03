@@ -46,8 +46,9 @@ public class AddFlightSchedule extends HttpServlet {
 		String toplace = request.getParameter("toplace");
 		String dateoftravel = request.getParameter("dateoftravel");
 		String depaturetime = request.getParameter("depaturetime");
+		double flightCostPerPerson = Double.parseDouble(request.getParameter("cost"));
 		AdminDao admindaoimpl = new AdminDaoImpl();
-		admindaoimpl.addNewFlightSchedule(flightname, fromplace, toplace, dateoftravel, depaturetime);
+		admindaoimpl.addNewFlightSchedule(flightname, fromplace, toplace, dateoftravel, depaturetime, flightCostPerPerson);
 		RequestDispatcher req = request.getRequestDispatcher("manageflightshedule.jsp");
 		req.include(request, response);
 		response.getWriter().write("<h2>Flight Schedule Added</h2>");

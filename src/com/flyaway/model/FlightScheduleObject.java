@@ -22,7 +22,14 @@ public class FlightScheduleObject {
 	private String toplace;
 	private String dateoftravel;
 	private String depaturetime;
+	private double flightCostPerPerson;
 	
+	public double getFlightCostPerPerson() {
+		return flightCostPerPerson;
+	}
+	public void setFlightCostPerPerson(double flightCostPerPerson) {
+		this.flightCostPerPerson = flightCostPerPerson;
+	}
 	public int getFlightid() {
 		return flightid;
 	}
@@ -54,13 +61,14 @@ public class FlightScheduleObject {
 		this.depaturetime = depaturetime;
 	}
 	
-	public FlightScheduleObject(String flightname, String fromplace, String toplace, String dateoftravel, String depaturetime) {
+	public FlightScheduleObject(String flightname, String fromplace, String toplace, String dateoftravel, String depaturetime , double flightCostPerPerson) {
 		super();
 		this.flightName = flightname;
 		this.fromplace = fromplace;
 		this.toplace = toplace;
 		this.dateoftravel = dateoftravel;
 		this.depaturetime = depaturetime;
+		this.flightCostPerPerson = flightCostPerPerson;
 	}
 	
 	public String getFlightName() {

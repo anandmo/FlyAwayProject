@@ -82,9 +82,9 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	@Override
-	public void addNewFlightSchedule(String flightname,String fromplace, String toplace, String dateoftravel, String depaturetime) {
+	public void addNewFlightSchedule(String flightname,String fromplace, String toplace, String dateoftravel, String depaturetime, double flightCostPerPerson) {
 		
-		FlightScheduleObject flightscheduleobject = new FlightScheduleObject(flightname,fromplace,toplace,dateoftravel,depaturetime);
+		FlightScheduleObject flightscheduleobject = new FlightScheduleObject(flightname,fromplace,toplace,dateoftravel,depaturetime, flightCostPerPerson);
 		Session session = DBUtility.getDBSession(FlightScheduleObject.class);
 		Transaction tx = session.beginTransaction();
 		session.save(flightscheduleobject);
