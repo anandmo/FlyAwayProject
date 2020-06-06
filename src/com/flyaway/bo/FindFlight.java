@@ -35,6 +35,8 @@ public class FindFlight extends HttpServlet {
 		String fromplace = request.getParameter("fromplace");
 		String toplace = request.getParameter("toplace");
 		String numberOfPassengers = request.getParameter("cop");
+		Integer cop = Integer.parseInt(numberOfPassengers);
+		System.out.println("Number of Passengers : "+numberOfPassengers);
 		AdminDao admindaoimpl = new AdminDaoImpl();
 		List<FlightScheduleObject> flightschedulelist = admindaoimpl.findFlightSchedule(fromplace, toplace);
 		Iterator<FlightScheduleObject> flightscheduleiterator = flightschedulelist.iterator();
@@ -47,7 +49,7 @@ public class FindFlight extends HttpServlet {
 		} 
 	}
 		request.setAttribute("flightschedulelist", flightlist);
-		request.setAttribute("copassenger", numberOfPassengers);
+		request.setAttribute("copassenger", cop);
 		RequestDispatcher req = request.getRequestDispatcher("selectflight.jsp");
 		req.forward(request, response);
 		

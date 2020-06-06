@@ -19,6 +19,9 @@
 <form action="bookflight" method = "post">
 <div align = "center">
 <% AdminDaoImpl admindaoimpl = new AdminDaoImpl();
+        double totalCost; 
+        System.out.println("In selectflight.jsp : " + request.getAttribute("copassenger"));
+        int numberOfMembers = (Integer)request.getAttribute("copassenger") + 1;
         if(request.getAttribute("flightschedulelist") != null){ %>
 <h1>Select A Flight</h1>
 <br>
@@ -33,7 +36,7 @@
           <th><b> Destination </b></th> 
           <th><b> Date </b></th> 
           <th><b> Take off Time </b></th> 
-          <th><b> Cost </b></th> 
+          <th><b> Total Cost </b></th> 
           <th><b> Book </b></th> 
          </tr>   
         
@@ -41,18 +44,19 @@
        <%  @SuppressWarnings("unchecked")
         ArrayList<FlightScheduleObject> fslist = (ArrayList<FlightScheduleObject>)request.getAttribute("flightschedulelist"); 
         
-        for(FlightScheduleObject s:fslist){%> 
+        for(FlightScheduleObject s:fslist){
+             totalCost = s.getFlightCostPerPerson() *  numberOfMembers;        %> 
 
             <tr> 
-                <td><%=s.getFlightid()%></td> 
-                <td><%=s.getFlightName()%></td> 
-                <td><%=s.getFromplace()%></td> 
-                <td><%=s.getToplace()%></td>
-                <td><%=s.getDateoftravel()%></td> 
-                <td><%=s.getDepaturetime()%></td>
-                <td><%=s.getFlightCostPerPerson()%></td>  
-                 <td> <input type="radio" name="selectedticket" value=<%=s.getFlightid()%>> </td>
-            </tr> 
+                <td> <%=s.getFlightid()%> </td> 
+                <td> <%=s.getFlightName()%> </td> 
+                <td> <%=s.getFromplace()%> </td> 
+                <td> <%=s.getToplace()%> </td>
+                <td> <%=s.getDateoftravel()%> </td> 
+                <td> <%=s.getDepaturetime()%> </td>
+                <td> <%=totalCost%>  Rs</td>  
+                 <td> <input type="radio" name="selectedticket" value = <%=s.getFlightid()%> > </td>
+            </tr>
             <%} }  %>
            
         </table>  
