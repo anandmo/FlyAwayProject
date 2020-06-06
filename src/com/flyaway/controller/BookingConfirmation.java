@@ -7,27 +7,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/bookflight")
-public class BookFlight extends HttpServlet {
+/**
+ * Servlet implementation class BookingConfirmation
+ */
+@WebServlet("/bookingconfirmation")
+public class BookingConfirmation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public BookFlight() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public BookingConfirmation() {
         super();
-      
+        // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	 
-		String flightdetail = request.getParameter("selectedticket");
-		//response.getWriter().write(flightid); 
-	    request.setAttribute("flightdetail", flightdetail);
-		request.getRequestDispatcher("getdetail.jsp").forward(request, response);
+
+		
+		
 		
 	}
 

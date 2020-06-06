@@ -13,8 +13,17 @@ public class TicketObject {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "flightid", updatable = false, nullable = false)
+	@Column(name = "ticketid", updatable = false, nullable = false)
 	private int ticketid;
+	private int flightid;
+	public int getFlightid() {
+		return flightid;
+	}
+	public void setFlightid(int flightid) {
+		this.flightid = flightid;
+	}
+
+
 	private String travellerName;
 	private String travellerEmail;
 	private double travellerPhoneNo;
@@ -65,9 +74,11 @@ public class TicketObject {
 	}
 	
 	
-	public TicketObject(String travellerName, String travellerEmail, double travellerPhoneNo, int cotraveller,
+	public TicketObject(int flightid,String travellerName, String travellerEmail, double travellerPhoneNo, int cotraveller,
 			float ticketCost) {
 		super();
+		
+		this.flightid = flightid;
 		this.travellerName = travellerName;
 		this.travellerEmail = travellerEmail;
 		this.travellerPhoneNo = travellerPhoneNo;
