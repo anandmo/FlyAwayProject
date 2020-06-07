@@ -55,7 +55,7 @@
                 <td> <%=s.getDateoftravel()%> </td> 
                 <td> <%=s.getDepaturetime()%> </td>
                 <td> <%=totalCost%>  Rs</td>  
-                <% String tempdata =  s.getFlightid() + "+" + totalCost + "+" + numberOfMembers; %>
+                <% String tempdata =  s.getFlightid() + "-" + totalCost + "-" + numberOfMembers; %>
                  <td> <input type="radio" name="selectedticket" value = <%=tempdata%> > </td>
             </tr>
             <%} }  %>

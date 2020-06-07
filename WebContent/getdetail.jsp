@@ -13,7 +13,7 @@
 <br>
 <form action = "bookingconfirmation" method = "post">
 <% String d = (String)request.getAttribute("flightdetail"); %>
-<input type = "hidden" value = d name = "fdetail">
+<input type = "hidden" value = <%= d%> name = "fdetail">
 
 <div align = "center">
 <h3>Passenger Details</h3>

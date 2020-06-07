@@ -127,6 +127,26 @@ public class AdminDaoImpl implements AdminDao {
 		return flightobject.getFlightName();
 
 	}
+
+	@Override
+	public FlightObject getFlightObject(String flightid) {
+		FlightObject flightobject;
+	    Session session = DBUtility.getDBSession(FlightObject.class);
+	    Transaction tx = session.beginTransaction();
+	    flightobject = session.get(FlightObject.class, Integer.parseInt(flightid));
+		tx.commit();	
+		return flightobject;
+	}
+
+	@Override
+	public FlightScheduleObject getFlightSheduleObject(String fsid) {
+		FlightScheduleObject flightscheduleobject;
+	    Session session = DBUtility.getDBSession(FlightScheduleObject.class);
+	    Transaction tx = session.beginTransaction();
+	    flightscheduleobject = session.get(FlightScheduleObject.class, Integer.parseInt(fsid));
+		tx.commit();	
+		return flightscheduleobject;
+	}
 	
 	
 

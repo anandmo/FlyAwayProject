@@ -14,5 +14,6 @@ public interface AdminDao {
 	public List<FlightScheduleObject> findFlightSchedule(String fromplace,String toplace);
 	public String getPlaceName(String pincode);
 	public String getFlightName(String flightid);
-	
+	public FlightObject getFlightObject(String flightid);
+	public FlightScheduleObject getFlightSheduleObject(String fsid);
 }
