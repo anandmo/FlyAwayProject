@@ -15,7 +15,7 @@
 
 <p><em>Congratulation your flight ticket from <%=request.getAttribute("source") %> to <%= request.getAttribute("destination") %> has been booked successfully </em></p>
 <hr>
-<table>
+<table border = "2">
 
 <tr>
 <td>Name </td>

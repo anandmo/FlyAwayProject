@@ -17,6 +17,7 @@
 <p><a href = "./manageplace.jsp">Manage Place</a></p>
 <p><a href = "./manageflight.jsp">Manage Flight</a></p>
 <p><a href = "./manageflightshedule.jsp">Manage Flights Schedule</a></p>
+<p><a href = "./changepassword.jsp">Change Password</a></p>
 <p> <a href = "./welcome.jsp">Back to Welcome Page</a> </p>
 </div>
 

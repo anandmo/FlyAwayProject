@@ -25,7 +25,9 @@
 <tr><td><input type  = "submit" value = "Login"></td></tr>
 
 </table>  
- 
+ <br>
+ <br>
+ <a href = "changepassword.jsp">Change Password</a>
 </div>
 
 </form>

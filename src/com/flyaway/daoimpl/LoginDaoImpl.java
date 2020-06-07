@@ -1,5 +1,6 @@
 package com.flyaway.daoimpl;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -7,6 +8,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import com.flyaway.dao.DBUtility;
 import com.flyaway.dao.LoginDao;
 import com.flyaway.model.LoginObject;
 
@@ -50,6 +52,17 @@ public class LoginDaoImpl implements LoginDao {
 		}
 		
 		return false;
+	}
+
+	@Override
+	public void modifyPassword(String username, String password) {
+		
+		Session s = DBUtility.getDBSession(LoginObject.class);
+		
+		Transaction tx = s.beginTransaction();
+		s.createQuery("update LoginObject set password=:npassword where userid=:username").setParameter("npassword", password).setParameter("username", username).executeUpdate();
+		tx.commit();
+		s.close();
 	}
 
 }
