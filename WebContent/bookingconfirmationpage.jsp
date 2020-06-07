@@ -14,7 +14,7 @@
 <br>
 
 <p><em>Congratulation your flight ticket from <%=request.getAttribute("source") %> to <%= request.getAttribute("destination") %> has been booked successfully </em></p>
-
+<hr>
 <table>
 
 <tr>
@@ -68,9 +68,13 @@
 </tr>
 
 </table>
+<hr>
 <br>
 <br>
 <input type="button" value="Print Ticket" onClick="window.print()">
+<br>
+<br>
+<a href = "welcome.jsp"><em>Book Another Ticket</em>></a>
 </div>
 
 

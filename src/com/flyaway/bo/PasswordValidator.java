@@ -11,35 +11,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.flyaway.daoimpl.LoginDaoImpl;
 
-/**
- * Servlet implementation class PasswordValidator
- */
+
 @WebServlet("/validate")
 public class PasswordValidator extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public PasswordValidator() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		if(request.getSession(false) != null) {
+		doPost(request,response);
+		} else {
+			RequestDispatcher req = request.getRequestDispatcher("welcome.jsp");
+			req.forward(request, response);
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+		
+		if(request.getSession(false) != null) {
+		
 		String userid = request.getParameter("userid");
 		String password = request.getParameter("password");
 		
@@ -73,6 +68,10 @@ public class PasswordValidator extends HttpServlet {
 				
 			}
 			
+		}
+		} else {
+			RequestDispatcher req = request.getRequestDispatcher("welcome.jsp");
+			req.forward(request, response);
 		}
 	}
 

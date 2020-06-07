@@ -64,6 +64,11 @@
 <br>
 <br>
 <input type = "submit" value = "Proceed for Payment" >
+<br>
+<br>
+<br>
+<br>
+<a href = "welcome.jsp"><em>Change Flight details</em></a>
 </div>
 </form>
 

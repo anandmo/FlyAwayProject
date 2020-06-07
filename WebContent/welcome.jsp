@@ -19,7 +19,9 @@
 
 <table>
 <tr><td><a href="./adminLogin.jsp">Administrator</a></td>
+<td>  </td>
 <td><a href="./createAccount.jsp">SignUp</a></td>
+<td>  </td>
 <td><a href="./userLogin.jsp">Login</a></td>
 </table>
 
